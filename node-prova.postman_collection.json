@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "6bc64fa2-cd56-490f-984b-326d059112a1",
+		"name": "node-prova",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39922739"
+	},
+	"item": [
+		{
+			"name": "1. Cadastro de Usuários",
+			"item": [
+				{
+					"name": "Public Route (Valida o funcionamento do Servidor)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/auth/register - Registrar o usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Bernardo2\",\r\n    \"password\":\"Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Autenticação de Usuário",
+			"item": [
+				{
+					"name": "/auth/login - Realizar o Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Asafe\",\r\n    \"password\":\"Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/:id - Rota Privada - Validar o login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/675cee787207036ee529fbea",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"675cee787207036ee529fbea"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. Gestão de Categorias",
+			"item": [
+				{
+					"name": "Listar todas categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/category/get",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"category",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar uma categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/category/get/675d0a545d3698d65c9fed51",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"category",
+								"get",
+								"675d0a545d3698d65c9fed51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir uma categoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Categoria 02\",\r\n    \"description\":\"Teste 123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/category/post",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"category",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar a categoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //\"name\": \"00000\",\r\n    \"description\":\"Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/category/update/675d0a545d3698d65c9fed52",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"category",
+								"update",
+								"675d0a545d3698d65c9fed52"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar a categoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Gamer\",\r\n    \"description\":\"Mouse Gamer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/category/put/675d0a545d3698d65c9fed52",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"category",
+								"put",
+								"675d0a545d3698d65c9fed52"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar uma categoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/category/delete/675d0a545d3698d65c9fed52",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"category",
+								"delete",
+								"675d0a545d3698d65c9fed52"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4. Gestão de Produtos",
+			"item": [
+				{
+					"name": "Listar todos os produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/product/get",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"product",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar um produto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/product/get/675e0c95b7281b2027c9301a",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"product",
+								"get",
+								"675e0c95b7281b2027c9301a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir um produto (pendente)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Produto Exemplo\",\r\n  \"description\": \"Descrição do produto\",\r\n  \"amount\": 10,\r\n  \"price\": 99.99,\r\n  \"id_categories\": [\r\n    \"675de2cd481122dda8263c9b\",\r\n    \"675de2ca481122dda8263c98\",\r\n    \"675de90959b1a64f738715da\"\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/product/post",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"product",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar um produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //\"name\": \"Produto t45\"\r\n    //\"description\": \"\"\r\n    //\"amount\": \"\"\r\n    //\"price\": 33.24\r\n    \"id_categories\": [\r\n        \"675de2ca481122dda8263c98\",\"675de2cd481122dda8263c9b\"\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/product/update/675e0c95b7281b2027c9301a",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"product",
+								"update",
+								"675e0c95b7281b2027c9301a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar um produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"_id\": \"675e0c95b7281b2027c9301a\",\r\n        \"name\": \"Produto Exemplo\",\r\n        \"description\": \"Descrição do produto\",\r\n        \"amount\": 10,\r\n        \"price\": 99.99,\r\n        \"id_categories\": [\r\n            \"675de2ca481122dda8263c98\",\r\n            \"675de2cd481122dda8263c9b\",\r\n            \"675de90959b1a64f738715da\"\r\n        ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/product/put/675dde2d38b46a34a4b98f90",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"product",
+								"put",
+								"675dde2d38b46a34a4b98f90"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar um produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/product/delete/675dddbe38b46a34a4b98f8c",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"product",
+								"delete",
+								"675dddbe38b46a34a4b98f8c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5. Consulta de dados gerais",
+			"item": [
+				{
+					"name": "Listar os produtos de uma categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/general/products/category/675d0a5e5d3698d65c9fed56",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"general",
+								"products",
+								"category",
+								"675d0a5e5d3698d65c9fed56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos os produtos com suas categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/general/get",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"general",
+								"get"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NWNkNTE4ZGM3NWNiMDI5NjNjZDhkYiIsImlhdCI6MTczNDE0OTU1N30.MEsakXcbWY8tcKuc62Z2TFrUyGWkN8xd2mVItt6FJGI",
+			"type": "string"
+		}
+	]
+}
